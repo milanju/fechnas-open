@@ -17,7 +17,7 @@ if (!(empty($_COOKIE["rememberParticipant"]))) {
 
 	<br>
 	
-	<?php if(getSpecificValue($con, 'data', 'data', 'value', 'bracket')=='none'){/*?>
+	<?php if(getSpecificValue($con, 'data', 'data', 'value', 'bracket')=='none'){?>
 	<div style="position:absolute; right:10px; top:30px">
 	<!--Form for User CP-->
 	<button title="Click to edit Name#Code" style="width:190px;" class="button" type="button" 
@@ -43,7 +43,7 @@ if (!(empty($_COOKIE["rememberParticipant"]))) {
 	<form action='' method='POST'>
 	<input type='submit' name='unsign' value='Unsign from Tournament' class='button'>
 	</form>
-	<?php */} else {/*?>
+	<?php } else {?>
 	
 <?php
 	
@@ -91,7 +91,7 @@ if (!(empty($_COOKIE["rememberParticipant"]))) {
 		<?php
 		}
 	}
-	*/}
+	}
 }	else{
 	//echo 'Gratz motherfucker ' . $_COOKIE["rememberParticipant"] . ', you just won this shit. Fuck FekniZ. Hueue';
 }
