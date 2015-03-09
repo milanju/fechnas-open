@@ -5,7 +5,7 @@ $con=mysqli_connect("localhost","root","123","opendb");
 setcookie("invalidLogin", "invalidLogin",time() - 3600);
 setcookie("invalidScore", "invalidScore", time() - 3600);
 //<!--Check if Cookie should be deleted-->
-if(!(checkIfInBracket($con, 'participants', $_COOKIE["rememberParticipant"]))) {
+if($_COOKIE["rememberParticipant"] && !(checkIfInBracket($con, 'participants', $_COOKIE["rememberParticipant"]))) {
 	setcookie("rememberParticipant", $_COOKIE["rememberParticipant"], time()-3600);
 }
 
