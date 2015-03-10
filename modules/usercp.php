@@ -16,11 +16,11 @@ if (!(empty($_COOKIE["rememberParticipant"]))) {
 	?>
 
 	<br>
-	
+
 	<?php if(getSpecificValue($con, 'data', 'data', 'value', 'bracket')=='none'){?>
 	<div style="position:absolute; right:10px; top:30px">
 	<!--Form for User CP-->
-	<button title="Click to edit Name#Code" style="width:190px;" class="button" type="button" 
+	<button title="Click to edit Name#Code" style="width:190px;" class="button" type="button"
 	onclick="if(document.getElementById('spoiler2') .style.display=='none') {
       document.getElementById('spoiler2') .style.display=''
     }
@@ -30,7 +30,7 @@ if (!(empty($_COOKIE["rememberParticipant"]))) {
 		>
 	Edit Name#Code
 	</button>
-	
+
 	<div id="spoiler2" style="display:none">
 		<form action="" method="POST">
 		<input type="text" name="editParticipant" class="bracketfield" > <br>
@@ -39,16 +39,16 @@ if (!(empty($_COOKIE["rememberParticipant"]))) {
 		</form>
 	</div>
 	</div>
-	
+
 	<form action='' method='POST'>
 	<input type='submit' name='unsign' value='Unsign from Tournament' class='button'>
 	</form>
 	<?php } else {?>
-	
+
 <?php
-	
+
 	if (((getSpecificValue($con, 'data', 'data', 'value', 'bracket') != 'none') && (getSpecificValue($con, 'data', 'data', 'value', 'bracket') != 'bracket_ro1'))) {
-		
+
 			$userSlot = getSpecificValue($con, getUserBracket($con, $_COOKIE["rememberParticipant"]), 'name', 'spot', $_COOKIE["rememberParticipant"]);
 		if ($userSlot % 2 == 0) {
 			$opponentSlot = $userSlot-1;
@@ -65,21 +65,21 @@ if (!(empty($_COOKIE["rememberParticipant"]))) {
 			echo "Your opponent is " . $opponent;
 		?>
 		<div class="content_module" style="width: 200px; margin:0;">
-		<div class="title"> Submit your Score! </div>
+		<div class="title"> <div class="title-text">Submit your Score!</div></div>
 		<?php
 			if (!(empty($_COOKIE["invalidScore"]))) { ?>
 				<div id="invalid_score_message"> Invalid Submit! Please Submit a valid Score! </div>
 			<?php } ?>
 		<div id="win_loss">
-		
+
 		</div>
 		<form action="" method="POST">
-		
+
 		<table style="margin: 0 auto; font-size: 12px">
 		<tr><td>Game 1:</td><td><label class="radio"><input type="radio" name="game_1" value="won" class="radio_win"><div>win</div></label></td><td><label class="radio"><input type="radio" name="game_1" value="lost" class="radio_win"><div>lose</div></label></td><td><label class="radio"><input type="radio" name="game_1" value="-" class="radio_win" checked><div>-</div></label></td></tr>
 		<tr><td>Game 2:</td><td><label class="radio"><input type="radio" name="game_2" value="won" class="radio_win"><div>win</div></label></td><td><label class="radio"><input type="radio" name="game_2" value="lost" class="radio_win"><div>lose</div></label></td><td><label class="radio"><input type="radio" name="game_2" value="-" class="radio_win" checked><div>-</div></label></td></tr>
 		<tr><td>Game 3:</td><td><label class="radio"><input type="radio" name="game_3" value="won" class="radio_win"><div>win</div></label></td><td><label class="radio"><input type="radio" name="game_3" value="lost" class="radio_win"><div>lose</div></label></td><td><label class="radio"><input type="radio" name="game_3" value="-" class="radio_win" checked><div>-</div></label></td></tr>
-		<?php 
+		<?php
 		if (getUserBracket($con, $_COOKIE["rememberParticipant"]) == 'bracket_ro2') { ?>
 			<tr><td>Game 4:</td><td><label class="radio"><input type="radio" name="game_4" value="won" class="radio_win"><div>win</div></label></td><td><label class="radio"><input type="radio" name="game_4" value="lost" class="radio_win"><div>lose</div></label></td><td><label class="radio"><input type="radio" name="game_4" value="-" class="radio_win" checked><div>-</div></label></td></tr>
 			<tr><td>Game 5:</td><td><label class="radio"><input type="radio" name="game_5" value="won" class="radio_win"><div>win</div></label></td><td><label class="radio"><input type="radio" name="game_5" value="lost" class="radio_win"><div>lose</div></label></td><td><label class="radio"><input type="radio" name="game_5" value="-" class="radio_win" checked><div>-</div></label></td></tr>
@@ -96,7 +96,7 @@ if (!(empty($_COOKIE["rememberParticipant"]))) {
 	//echo 'Gratz motherfucker ' . $_COOKIE["rememberParticipant"] . ', you just won this shit. Fuck FekniZ. Hueue';
 }
 }  elseif (getSpecificValue($con, 'data', 'data', 'value', 'bracket') == 'none') {
-?>  
+?>
   Select your Race and enter your Name and your Charactercode below to participate in the Tournament.
 
   <!--Form for Name input & submit Button-->
@@ -108,7 +108,7 @@ if (!(empty($_COOKIE["rememberParticipant"]))) {
   <input type="submit" value="submit" class="button">
   </form>
 
-<?php 
+<?php
 } else {
 	echo "The Tournament is already running, please come again next week!";
 }
