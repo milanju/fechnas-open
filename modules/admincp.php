@@ -5,12 +5,12 @@
   </div>
 <!--Form for wipe Button(Participants)-->
 <form action="" method="POST">
-<input type="submit" name="wipe_participants" value="wipe" class="admin-button">
+<input type="submit" name="wipe_participants" value="Wipe" class="admin-button">
 </form>
 
 <!--Form for create_bracket Button(Participants)-->
 <form action="" method="POST">
-<input type="submit" name="create_bracket" value="create_bracket" class="admin-button">
+<input type="submit" name="create_bracket" value="Create Bracket" class="admin-button">
 </form>
 
 <!--Form for addTestParticipants-->
