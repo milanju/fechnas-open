@@ -155,6 +155,35 @@ body{
 	padding-top:10px;
 }
 
+.logout-button{
+	background-color: #202020;
+	color: #FFF;
+	margin-left: 5px;
+	-webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.login-button{
+	background-color: #202020;
+	color: #FFF;
+	-webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.register-button{
+	background-color: #202020;
+	color: #FFF;
+	-webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+.login-input{
+	margin-left: 5px;
+}
+
 #navbar{
 	background-color: #202020;
 	height: 40px;
@@ -284,7 +313,7 @@ label.radio > input:checked + div{ /* (RADIO CHECKED) IMAGE STYLES */
 	margin:0;
 	bottom:5px;
 	right:1%;
-	
+
 	font-size: small;
 }
 #ro16{
@@ -429,7 +458,7 @@ li.bracket_match{
 	position: absolute;
 }
 
-hr{	
+hr{
 	border-top: solid 1px #B8B8B8 ;
 	width: 98%;
 }
@@ -463,7 +492,7 @@ form {
 	top:0px;
 	margin-left: 0px;
 	margin-top:1px;
-	
+
 }
 
 
@@ -509,7 +538,7 @@ form {
 	border-bottom:solid 2px #ff6252;
 	border-right:solid 2px #ff6252;
 	margin-top: 1px;
-}	
+}
 
 #right_border{
 	position: absolute;
@@ -595,8 +624,8 @@ form {
 	height: 18px;
 	width: 158px;
 	position: relative;
-	
-	
+
+
 }
 
 .br_score_field{
