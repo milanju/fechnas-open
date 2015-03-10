@@ -6,6 +6,7 @@
 <head>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+<link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
 <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
 </head>
 
