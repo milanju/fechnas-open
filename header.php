@@ -98,9 +98,9 @@ if($rnd_var==1){ ?>
 <?php } elseif($rnd_var==2){ ?>
 <a href="index.php"><img src="images/banner_kc.png" width="1100" height="140"  alt="Home"></a>
 <?php } elseif($rnd_var==3){ ?>
-<a href="index.php"><img src="images/banner_c.png" width="1100" height="140"  alt="Home"></a>
-<?php } else{ ?>
 <a href="index.php"><img src="images/banner.png" width="1100" height="140"  alt="Home"></a>
+<?php } else{ ?>
+<a href="index.php"><img src="images/banner_c.png" width="1100" height="140"  alt="Home"></a>
 <?php } ?>
 
 
