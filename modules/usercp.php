@@ -85,7 +85,7 @@ if (!(empty($_COOKIE["rememberParticipant"]))) {
 			<tr><td>Game 5:</td><td><label class="radio"><input type="radio" name="game_5" value="won" class="radio_win"><div>win</div></label></td><td><label class="radio"><input type="radio" name="game_5" value="lost" class="radio_win"><div>lose</div></label></td><td><label class="radio"><input type="radio" name="game_5" value="-" class="radio_win" checked><div>-</div></label></td></tr>
 		<?php }?>
 		</table>
-		<input type="submit" name="submit_score" value="Submit" class="button" style="margin-left: 50px; background-color: #2ddca0;border:black;color:black;">
+		<input type="submit" name="submit_score" value="Submit" class="submit-win-button" style="margin-left: 50px;">
 		</form>
 		</div>
 		<?php

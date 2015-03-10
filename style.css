@@ -164,6 +164,10 @@ body{
   border-radius: 2px;
 }
 
+.logout-button:hover{
+	background-color: #303030;
+}
+
 .login-button{
 	background-color: #202020;
 	color: #FFF;
@@ -386,10 +390,19 @@ ul{
 
 .bracket_td{
 }
-.submit_win_button{
-	background-color: #006600;
-	width: 40px;
-	margin: 0px;
+.submit-win-button{
+	background-color: #1AE973;
+	height: 26px;
+	-webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  margin: 5px;
+  color: #000;
+}
+
+.submit-win-button:hover{
+	background-color: #21BE65;
+	color: #FFF;
 }
 
 .button{
@@ -399,6 +412,14 @@ ul{
   -moz-border-radius: 3px;
   border-radius: 3px;
   margin: 5px;
+}
+
+.button:hover{
+	background-color: #185C81;
+}
+
+.admin-button:hover{
+	background-color: #185C81;
 }
 
 .admin-button{
@@ -421,10 +442,6 @@ ul{
   border: solid 1px #1778AD;
   margin: 5px;
   float: left;
-}
-
-.button:hover{
-	color: black;
 }
 
 .bracket_list{
