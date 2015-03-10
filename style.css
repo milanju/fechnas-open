@@ -210,6 +210,7 @@ body{
 
 .title-text{
 	margin-top: 6px;
+	font-weight: bold;
 }
 ul.navbar_menu{
     list-style-type: none;

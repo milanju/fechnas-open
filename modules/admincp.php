@@ -1,7 +1,7 @@
 <?php if (isset($_COOKIE["rememberUsername"]) && getSpecificValue($con, 'users', 'name', 'rights', $_COOKIE["rememberUsername"])=='superadmin') { ?>
 <div id="admin_cp_div" class="content_module">
   <div class="title">
-    <div class="title-text">~Admin CP~</div>
+    <div class="title-text">Admin CP</div>
   </div>
 <!--Form for wipe Button(Participants)-->
 <form action="" method="POST">
@@ -24,5 +24,5 @@
 <input type="submit" name="editBracket" value="Edit Bracket" class="admin-button">
 </form>
 
-</div> 
+</div>
 <?php } ?>

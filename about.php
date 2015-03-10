@@ -9,7 +9,7 @@
 <div id="content">
   <div class="content_module">
     <div class="title">
-      <div class="title-text">~About~</div>
+      <div class="title-text">About</div>
     </div>
       <center>
         Created by Fechnas & Milant as PHP learning Project.<br>

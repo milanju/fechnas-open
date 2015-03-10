@@ -1,6 +1,6 @@
 <div id="user_cp_div" class="content_module">
 <div class="title">
-	<div class="title-text">~User CP~</div>
+	<div class="title-text">User CP</div>
 </div>
 
 <?php

@@ -3,10 +3,10 @@
 
 <div id ="ebracket" class="content_module">
 <div class=title>
-  <div class="title-text">~Bracket 2.0~</div>
+  <div class="title-text">Bracket</div>
 </div>
 <div id="ebracket_div">
-<?php 
+<?php
 
 
 if(getSpecificValue($con, 'data', 'data', 'value', 'bracket')!='none'){
