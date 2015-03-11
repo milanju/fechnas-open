@@ -103,7 +103,7 @@ exit();
 }
 
 //<!--Check if WIPE button(Participants) has been pressed if true > run resetBracket()-->
-if(!empty($_POST["wipe_participants"])){
+if(!empty($_POST["wipe-participants"])){
 	$bracket_size=getBracketSize(getSpecificValue($con, 'data', 'data', 'value', 'bracket'));
 	$i=2048;
 		do{
@@ -120,9 +120,9 @@ header("Location: " . $_SERVER['REQUEST_URI']);
 exit();
 }
 
-//<!--Check if CREATE_BRACKET button has been pressed if true > run resetBracket()-->
+//<!--Check if create-bracket button has been pressed if true > run resetBracket()-->
 
-if(!empty($_POST["create_bracket"])){
+if(!empty($_POST["create-bracket"])){
 $participantsArray = getValueArray($con, 'participants');
 shuffle($participantsArray);
 generateBracket($con, $participantsArray);
