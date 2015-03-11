@@ -10,7 +10,8 @@
 
 
 if(getSpecificValue($con, 'data', 'data', 'value', 'bracket')!='none'){
-$bracket_size=getBracketSize(getSpecificValue($con, 'data', 'data', 'value', 'bracket'));
+$bracket_size=getBracketSize(getSpecificValue($con, 'data', 'data',
+                                              'value', 'bracket'));
 new bracket_table($con, $bracket_size);
 }
 ?>
