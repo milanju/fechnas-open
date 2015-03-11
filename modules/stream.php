@@ -1,4 +1,4 @@
-<div id="stream_div" class="content_module">
+<div id="stream_div" class="content-module">
 <div class=title>
   <div class="title-text">Stream</div>
 </div>

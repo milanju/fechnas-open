@@ -1,4 +1,4 @@
-<div id="participants" class="content_module">
+<div id="participants" class="content-module">
 <div class=title>
   <div class="title-text">Participants</div>
 </div>

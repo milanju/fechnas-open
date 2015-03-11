@@ -246,7 +246,7 @@ a:hover.navbar_menu{
 
 }
 
-#admin_cp_div{
+#admin-cp-div{
 	margin-bottom:10px;
 }
 
@@ -451,7 +451,7 @@ ul{
 }
 
 
-.content_module{
+.content-module{
 	position: relative;
 	background-color: #202020;
 	width: 1060px;

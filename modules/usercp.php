@@ -1,4 +1,4 @@
-<div id="user_cp_div" class="content_module">
+<div id="user_cp_div" class="content-module">
 <div class="title">
 	<div class="title-text">User CP</div>
 </div>
@@ -64,7 +64,7 @@ if (!(empty($_COOKIE["rememberParticipant"]))) {
 		} else {
 			echo "Your opponent is " . $opponent;
 		?>
-		<div class="content_module" style="width: 200px; margin:0;">
+		<div class="content-module" style="width: 200px; margin:0;">
 		<div class="title"> <div class="title-text">Submit your Score!</div></div>
 		<?php
 			if (!(empty($_COOKIE["invalidScore"]))) { ?>

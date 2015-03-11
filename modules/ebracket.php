@@ -1,7 +1,7 @@
 <?php include("bracket/bracket_table.php"); ?>
 
 
-<div id ="ebracket" class="content_module">
+<div id ="ebracket" class="content-module">
 <div class=title>
   <div class="title-text">Bracket</div>
 </div>

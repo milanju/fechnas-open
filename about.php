@@ -7,7 +7,7 @@
 
 
 <div id="content">
-  <div class="content_module">
+  <div class="content-module">
     <div class="title">
       <div class="title-text">About</div>
     </div>
