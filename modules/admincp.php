@@ -22,8 +22,8 @@
   <form action="" method="POST">
     <input type="number" name="number_to_add" value=""
            class="bracketfield participant-number " style="width: 50px;">
-    <input type="submit" name="addTestParticipants" value="Add Test Participants"
-           class="admin-button">
+    <input type="submit" name="addTestParticipants"
+                 value="Add Test Participants" class="admin-button">
   </form>
 
   <!--Form for editBracket Button-->
