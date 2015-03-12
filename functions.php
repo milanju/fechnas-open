@@ -1,15 +1,15 @@
 <?php
 
-//<-------------------------BRACKET FUNCTIONS START--------------------------------------->
+// <-------------------------BRACKET FUNCTIONS START--------------------------->
 
-//function: generateBracket
+// function: generateBracket
 
 function generateBracket($con, $shuffledParticipantsArray)
 {
 
     $bracket = selectTable(count($shuffledParticipantsArray));
-    //mysqli_query($con, "TRUNCATE $bracket");
-    //get bracket_size
+    // mysqli_query($con, "TRUNCATE $bracket");
+    // get bracket_size
     $bracket_size=getBracketSize($bracket);
     $byeCount = $bracket_size-count($shuffledParticipantsArray);
     $byeCount2 = $byeCount;
@@ -36,9 +36,9 @@ function generateBracket($con, $shuffledParticipantsArray)
 
 
 
-    //update data with root table info
+    // update data with root table info
     updateTableSpecific($con, 'data', $bracket, 'data', 'value', 'bracket');
-    //Table is now generated. Will generate empty child Tables.
+    // Table is now generated. Will generate empty child Tables.
 
     for ($i = $bracket_size; $i >= 2; $i = $i / 2) {
         echo 'yolo';
@@ -82,7 +82,7 @@ function generateBracket($con, $shuffledParticipantsArray)
         }
 
         $bracket_size=getBracketSize($bracket);
-        //insert placeholders in child brackets
+        // insert placeholders in child brackets
         for ($j = 1; $j <= $bracket_size; $j++) {
             insertInTable($con, $bracket, 'spot', 'name', $j, '&nbsp;');
         }
@@ -132,7 +132,7 @@ function getBracketSize($bracket)
     else return explode("o", $bracket)[1];
 }
 
-//function: selectTable, returns correct Table according to number of participants
+// function: selectTable, returns correct Table according to number of participants
 function selectTable($counter)
 {
     for ($i = 2; $i < 4096; $i = $i * 2) {
@@ -142,7 +142,7 @@ function selectTable($counter)
     }
 }
 
-//function: getUserBracket
+// function: getUserBracket
 function getUserBracket($con, $user)
 {
     for ($i = 1; $i < 4096; $i = $i * 2) {
@@ -153,7 +153,7 @@ function getUserBracket($con, $user)
     return "none";
 }
 
-//function: checkIfInBracket
+// function: checkIfInBracket
 function checkIfInBracket($con, $bracket, $user)
 {
     for ($i = 1; $i <= count(getValueArray($con, $bracket)); $i++) {
@@ -164,7 +164,7 @@ function checkIfInBracket($con, $bracket, $user)
     return false;
 }
 
-//function: insertInTable
+// function: insertInTable
 function insertInTable($con, $table, $column1, $column2, $value1, $value2)
 {
     mysqli_query($con,"INSERT INTO $table ($column1, $column2)
@@ -172,7 +172,7 @@ function insertInTable($con, $table, $column1, $column2, $value1, $value2)
 }
 
 
-//function: upgradeTable
+// function: upgradeTable
 function updateTable($con, $input, $spot, $table)
 {
     mysqli_query($con,"UPDATE $table "
@@ -180,7 +180,7 @@ function updateTable($con, $input, $spot, $table)
                     . "WHERE spot='$spot'");
 }
 
-//function: updateTableSpecific
+// function: updateTableSpecific
 function updateTableSpecific($con, $table, $SET, $column1, $column2, $value1)
 {
     mysqli_query($con,"UPDATE $table "
@@ -188,14 +188,15 @@ function updateTableSpecific($con, $table, $SET, $column1, $column2, $value1)
                     . "WHERE $column1='$value1'");
 }
 
-//function: deleteTableElement
+// function: deleteTableElement
 function deleteTableElement($con, $table, $column, $value)
 {
     mysqli_query($con,"DELETE FROM $table "
                     . "WHERE $column='$value'");
 }
 
-//function: updateBracket, enter <VALUE>, <SPOT>, updates <VALUE> @[WHERE] <SPOT>
+// function: updateBracket, enter <VALUE>, <SPOT>,
+// updates <VALUE> @[WHERE] <SPOT>
 function updateBracket($con, $input, $spot)
 {
     mysqli_query($con,"UPDATE ro16 "
@@ -203,7 +204,7 @@ function updateBracket($con, $input, $spot)
                     . "WHERE spot='$spot'");
 }
 
-//function: updateBracket8
+// function: updateBracket8
 function updateBracket8($con, $input, $spot)
 {
     mysqli_query($con,"UPDATE ro8 "
@@ -211,7 +212,7 @@ function updateBracket8($con, $input, $spot)
                     . "WHERE spot='$spot'");
 }
 
-//function: resetTable
+// function: resetTable
 function resetTable($con, $table)
 {
     for ($i = 1; $i <= count(getValueArray($con, $table)); $i++) {
@@ -220,13 +221,13 @@ function resetTable($con, $table)
 }
 
 
-//function: wipeTable
+// function: wipeTable
 function wipeTable($con, $table)
 {
     mysqli_query($con,"TRUNCATE $table");
 }
 
-//function: getEmptySlotV2 - revision
+// function: getEmptySlotV2 - revision
 
 function getEmptySlotV2($con, $bracket)
 {
@@ -252,7 +253,7 @@ function getValue($con, $bracket, $i)
     return $valueArray[0];
 }
 
-//function: getValue with specified columns
+// function: getValue with specified columns
 function getSpecificValue($con, $table, $column1, $column2, $value1)
 {
     $result = mysqli_query($con, "SELECT $column2 "
@@ -275,11 +276,12 @@ function getValueArray($con, $bracket)
 }
 
 
-//<-------------------------BRACKET FUNCTIONS END--------------------------------------->
+// <------------------------BRACKET FUNCTIONS END------------------------------>
 
-//<-------------------------USER FUNCTIONS START---------------------------------------->
+// <------------------------USER FUNCTIONS START------------------------------->
 
-function insertInTable_Users ($con, $table, $column1, $column2, $column3, $value1, $value2, $value3)
+function insertInTable_Users ($con, $table, $column1, $column2, $column3,
+    $value1, $value2, $value3)
 {
     mysqli_query($con,"INSERT INTO $table ($column1, $column2, $column3) "
                     . "VALUES ('$value1', '$value2', $value3) ");
@@ -295,5 +297,5 @@ function getInformation_Users($con, $table, $column, $value)
     return $valueArray[0];
 }
 
-//<-------------------------USER FUNCTIONS END------------------------------------------>
+// <------------------------USER FUNCTIONS END--------------------------------->
 ?>
