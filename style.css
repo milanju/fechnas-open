@@ -280,8 +280,8 @@ label.radio > input{ /* HIDE RADIO */
   display:none;
 }
 label.radio > input + div{ /* IMAGE STYLES */
-	width: 40px;
 	height: 20px;
+	width: 40px;
   cursor:pointer;
   background-color:#202020;
   border: solid 1px #989898;
@@ -292,6 +292,9 @@ label.radio > input:checked + div{ /* (RADIO CHECKED) IMAGE STYLES */
   border: solid 1px #989898;
 }
 
+label.radio-race > input + div{
+	width: 70px;
+}
 #bracket_div{
 	overflow: auto;
 	min-height: 600px;

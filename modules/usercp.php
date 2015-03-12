@@ -104,11 +104,27 @@
 
 	  <!--Form for Name input & submit Button-->
 	  <form action="" method="POST">
-	  <label class="radio"><input type="radio" name="race" value="Terran" class="radio_win"><div>Terran</div></label>
-	  <label class="radio"><input type="radio" name="race" value="Protoss" class="radio_win"><div>Protoss</div></label>
-	  <input type="text" name="enterParticipant" class="inputfield" value="Name" onFocus="value='';">#
-	  <input type="text" name="enterCharactercode" class="inputfield"; style="width:40px" value="Code" onFocus="value='';">
-	  <input type="submit" value="submit" class="button">
+	  	<table>
+	  		<tr>
+	  			<td>
+					  <label class="radio radio-race"><input type="radio" name="race"
+					  			 value="Terran"><div>Terran</div></label>
+					</td>
+					<td>
+					  <label class="radio radio-race"><input type="radio" name="race"
+					  			 value="Protoss"><div>Protoss</div></label>
+					</td>
+					<td>
+				  <label class="radio radio-race"><input type="radio" name="race"
+				  			 value="Zerg"><div>Zerg</div></label>
+				  </td>
+			  </tr>
+			  </table>
+					  <input type="text" name="enterParticipant" class="inputfield"
+					  			 value="Name" onFocus="value='';">#
+					  <input type="text" name="enterCharactercode" class="inputfield"
+					  			 style="width:40px" value="Code" onFocus="value='';">
+					  <input type="submit" value="submit" class="button">
 	  </form>
 
 	<?php

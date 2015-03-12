@@ -146,12 +146,14 @@ exit();
 
 //<!--Check if Name has been entered if true > enter name to next empty slot-->
 
-if(!empty($_POST["enterParticipant"]) && (!empty($_POST["enterCharactercode"]))){
-if(count(getValueArray($con, 'participants'))==0){
-	$spot_var=1;
-} else {
-	$spot_var=count(getValueArray($con, 'participants'))+1;
-}
+if(!empty($_POST["enterParticipant"]) &&
+  (!empty($_POST["enterCharactercode"])) &&
+  (!empty($_POST["race"]))){
+	if(count(getValueArray($con, 'participants'))==0){
+		$spot_var=1;
+	} else {
+		$spot_var=count(getValueArray($con, 'participants'))+1;
+	}
 
 $participant = $_POST["enterParticipant"] . "#" . $_POST["enterCharactercode"];
 
