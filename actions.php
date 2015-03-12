@@ -108,7 +108,8 @@ if (isset($_POST["wipe-participants"])) {
 		$i /= 2;
 	} while($i >= 1);
 	wipeTable($con, 'participants');
-	updateTableSpecific($con, 'data', 'none', 'data', 'value', 'bracket');
+	$sql = "UPDATE data SET value='none' WHERE data='bracket'";
+	$con->query($sql);
 
 	header("Location: " . $_SERVER['REQUEST_URI']);
 	exit();
@@ -165,8 +166,11 @@ if (isset($_POST["editParticipant"]) && (isset($_POST["editCharactercode"]))) {
 		$spot_var = count(getValueArray($con, 'participants') + 1);
 	}
 	$participant = $_POST["editParticipant"] . "#" . $_POST["editCharactercode"];
+	$name = $_COOKIE["rememberParticipant"];
 	updateTableSpecific($con, 'participants', $participant,
 			'name', 'name', $_COOKIE["rememberParticipant"]);
+	//$sql = "UPDATE participants SET name=$participant WHERE name=$name";
+	//$con->query($sql);
 	$_COOKIE["participant"] = $participant;
 	$expire = time() + 3600;
 	setcookie("rememberParticipant", $participant, $expire);
