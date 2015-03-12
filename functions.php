@@ -128,48 +128,9 @@ function generateBracket($con, $shuffledParticipantsArray)
 
 function getBracketSize($bracket)
 {
-    switch($bracket){
-        case 'bracket_ro2048':
-            $bracket_size=2048;
-            break;
-        case 'bracket_ro1024':
-            $bracket_size=1024;
-            break;
-        case 'bracket_ro512':
-            $bracket_size=512;
-            break;
-        case 'bracket_ro256':
-            $bracket_size=256;
-            break;
-        case 'bracket_ro128':
-            $bracket_size=128;
-            break;
-        case 'bracket_ro64':
-            $bracket_size=64;
-            break;
-        case 'bracket_ro32':
-            $bracket_size=32;
-            break;
-        case 'bracket_ro16':
-            $bracket_size=16;
-            break;
-        case 'bracket_ro8':
-            $bracket_size=8;
-            break;
-        case 'bracket_ro4':
-            $bracket_size=4;
-            break;
-        case 'bracket_ro2':
-            $bracket_size=2;
-            break;
-        case 'bracket_ro1':
-            $bracket_size=1;
-            break;
-        default:
-            $bracket_size=0;
-    }
-    return $bracket_size;
+    return explode("o", $bracket)[1];
 }
+
 //function: selectTable, returns correct Table according to number of participants
 function selectTable($counter)
 {
