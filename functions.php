@@ -41,7 +41,6 @@ function generateBracket($con, $shuffledParticipantsArray)
     // Table is now generated. Will generate empty child Tables.
 
     for ($i = $bracket_size; $i >= 2; $i = $i / 2) {
-        echo 'yolo';
         //mod bracket ~~~
         switch ($bracket) {
             case 'bracket_ro2048':
@@ -171,15 +170,6 @@ function insertInTable($con, $table, $column1, $column2, $value1, $value2)
         VALUES ($value1, '$value2')");
 }
 
-
-// function: upgradeTable
-function updateTable($con, $input, $spot, $table)
-{
-    mysqli_query($con,"UPDATE $table "
-                    . "SET name = '$input' "
-                    . "WHERE spot='$spot'");
-}
-
 // function: updateTableSpecific
 function updateTableSpecific($con, $table, $SET, $column1, $column2, $value1)
 {
@@ -211,15 +201,6 @@ function updateBracket8($con, $input, $spot)
                     . "SET name = '$input' "
                     . "WHERE spot='$spot'");
 }
-
-// function: resetTable
-function resetTable($con, $table)
-{
-    for ($i = 1; $i <= count(getValueArray($con, $table)); $i++) {
-        updateTable($con, '&nbsp;', $i, $table);
-    }
-}
-
 
 // function: wipeTable
 function wipeTable($con, $table)
