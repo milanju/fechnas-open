@@ -404,6 +404,5 @@ function getInformation_Users($con, $table, $column, $value)
     return $valueArray[0];
 }
 
-
 //<-------------------------USER FUNCTIONS END------------------------------------------>
 ?>
