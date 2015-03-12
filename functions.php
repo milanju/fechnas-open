@@ -128,64 +128,29 @@ function generateBracket($con, $shuffledParticipantsArray)
 
 function getBracketSize($bracket)
 {
-    return explode("o", $bracket)[1];
+    if ($bracket == "none") return "none";
+    else return explode("o", $bracket)[1];
 }
 
 //function: selectTable, returns correct Table according to number of participants
 function selectTable($counter)
 {
-    for($i = 2; $i < 4096; $i = $i * 2){
+    for ($i = 2; $i < 4096; $i = $i * 2) {
         if ($counter <= $i) {
             return 'bracket_ro' . "$i";
         }
     }
 }
 
-
-
 //function: getUserBracket
 function getUserBracket($con, $user)
 {
-    switch (true) {
-    case (checkIfInBracket($con, 'bracket_ro1', $user)):
-        return 'bracket_ro1';
-        break;
-    case (checkIfInBracket($con, 'bracket_ro2', $user)):
-        return 'bracket_ro2';
-        break;
-    case (checkIfInBracket($con, 'bracket_ro4', $user)):
-        return 'bracket_ro4';
-        break;
-    case (checkIfInBracket($con, 'bracket_ro8', $user)):
-        return 'bracket_ro8';
-        break;
-    case (checkIfInBracket($con, 'bracket_ro16', $user)):
-        return 'bracket_ro16';
-        break;
-    case (checkIfInBracket($con, 'bracket_ro32', $user)):
-        return 'bracket_ro32';
-        break;
-    case (checkIfInBracket($con, 'bracket_ro64', $user)):
-        return 'bracket_ro64';
-        break;
-    case (checkIfInBracket($con, 'bracket_ro128', $user)):
-        return 'bracket_ro128';
-        break;
-    case (checkIfInBracket($con, 'bracket_ro256', $user)):
-        return 'bracket_ro256';
-        break;
-    case (checkIfInBracket($con, 'bracket_ro512', $user)):
-        return 'bracket_ro512';
-        break;
-    case (checkIfInBracket($con, 'bracket_ro1024', $user)):
-        return 'bracket_ro1024';
-        break;
-    case (checkIfInBracket($con, 'bracket_ro2048', $user)):
-        return 'bracket_ro2048';
-        break;
-    default:
-        return 'none';
+    for ($i = 1; $i < 4096; $i = $i * 2) {
+        if (checkIfInBracket($con, "bracket_ro" . "$i", $user)) {
+            return "bracket_ro" . "$i";
+        }
     }
+    return "none";
 }
 
 //function: checkIfInBracket
