@@ -134,45 +134,10 @@ function getBracketSize($bracket)
 //function: selectTable, returns correct Table according to number of participants
 function selectTable($counter)
 {
-    switch ($counter) {
-    case (false):
-        return 'none';
-        break;
-    case ($counter <= 2048 && $counter >= 1025):
-        return 'bracket_ro2048';
-        break;
-    case ($counter <= 1024 && $counter >= 513):
-        return 'bracket_ro1024';
-        break;
-    case ($counter <= 512 && $counter >= 257):
-        return 'bracket_ro512';
-        break;
-    case ($counter <= 256 && $counter >= 129):
-        return 'bracket_ro256';
-        break;
-    case ($counter <= 128 && $counter >= 65):
-        return 'bracket_ro128';
-        break;
-    case ($counter <= 64 && $counter >= 33):
-        return 'bracket_ro64';
-        break;
-    case ($counter <= 32 && $counter >= 17):
-        return 'bracket_ro32';
-        break;
-    case ($counter <= 16 && $counter >= 9):
-        return 'bracket_ro16';
-        break;
-    case ($counter <= 8 && $counter >= 5):
-        return 'bracket_ro8';
-        break;
-    case ($counter <= 4 && $counter >= 3):
-        return 'bracket_ro4';
-        break;
-    case ($counter <= 2 && $counter >= 1):
-        return 'bracket_ro2';
-        break;
-    default:
-        return 'bracket_ro2';
+    for($i = 2; $i < 4096; $i = $i * 2){
+        if ($counter <= $i) {
+            return 'bracket_ro' . "$i";
+        }
     }
 }
 
