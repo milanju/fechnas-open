@@ -51,8 +51,6 @@ $(document).ready(function() {
 	<div id="welcome_message">Hello <?php echo $_COOKIE["rememberUsername"]; ?> ! </div><?php } ?>
 	</form>
 </div>
-
-
 	<div id="above_header_clock">
 		<script type="text/javascript">
 tday  =new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");

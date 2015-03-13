@@ -278,5 +278,15 @@ function getInformation_Users($con, $table, $column, $value)
     return $valueArray[0];
 }
 
+function getInformation_Users2($con, $table, $column1, $column2, $value)
+{
+    $result = mysqli_query($con, "SELECT $column1 "
+                               . "FROM $table "
+                               . "WHERE $column2='$value'");
+    $valueArray = mysqli_fetch_array($result);
+
+    return $valueArray[0];
+}
+
 // <------------------------USER FUNCTIONS END--------------------------------->
 ?>

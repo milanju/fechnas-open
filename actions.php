@@ -1,6 +1,5 @@
 <?php
 include ("functions.php");
-
 $con=mysqli_connect("localhost","root","123","opendb");
 setcookie("invalidLogin", "invalidLogin",time() - 3600);
 setcookie("invalidScore", "invalidScore", time() - 3600);
@@ -42,8 +41,10 @@ if (isset($_POST["number_to_add"])) {
 // Check if Register-Button in register.php
 // has been pressed if true > run register User to Database
 if (isset($_POST["register_user"])) {
-	$name=$_POST['register_name'];
-	$pw=$_POST['register_pw'];
+	require_once('phpass-0.3/PasswordHash.php');
+	$hasher = new PasswordHash(8, false);
+	$name = $_POST['register_name'];
+	$pw = $hasher->HashPassword($_POST['register_pw']);
 	mysqli_query($con,"INSERT INTO users (name, password)"
 					. "VALUES ('$name', '$pw')");
 	header("Location: " . $_SERVER['REQUEST_URI']);
@@ -59,15 +60,14 @@ if (isset($_POST["register"])) {
 
 // Checks Password and Username and informs if successful or not
 if (isset($_POST["login_user"])) {
-
-	if (getInformation_Users($con, 'users', 'name', $_POST["login_name"]) ===
-		$_POST["login_name"] && getInformation_Users($con, 'users',
-		'password', $_POST["login_pw"]) === $_POST["login_pw"]) {
-		//IF DATA CORRECT
+	require_once('phpass-0.3/PasswordHash.php');
+	$hasher = new PasswordHash(8, false);
+	$pw = $_POST["login_pw"];
+	$hashedPw = getInformation_Users2($con, 'users', 'password', 'name', $_POST["login_name"]);
+	if ($hasher->CheckPassword($pw, $hashedPw)) {
 		setcookie("rememberUsername", $_POST["login_name"],
-			time() + 365 * 24 * 3600);
+		time() + 365 * 24 * 3600);
 	} else {
-		//IF INVALID DATA DO THIS PL0X
 		setcookie("invalidLogin","invalidLogin", time() + 3600);
 	}
 	header("Location: " . $_SERVER['REQUEST_URI']);
