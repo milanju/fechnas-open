@@ -127,7 +127,6 @@ if (isset($_POST["create-bracket"])) {
 }
 
 // Check if Name has been entered if true > enter name to next empty slot
-
 if (isset($_POST["enterParticipant"]) &&
 	(isset($_POST["enterCharactercode"])) &&
 	(isset($_POST["race"]))) {
@@ -146,19 +145,7 @@ if (isset($_POST["enterParticipant"]) &&
 	exit();
 }
 
-if (isset($_POST["editParticipant"]) && (isset($_POST["editCharactercode"]))) {
-	if (isset($_COOKIE["editBracket"])) {
-		setcookie("editBracket", "editBracket", time() - 3600);
-	} else {
-		setcookie("editBracket", "editBracket", time() + 3600);
-	}
-
-	header("Location: " . $_SERVER['REQUEST_URI']);
-	exit();
-}
-
 // Check if Name has been updated if true > update
-
 if (isset($_POST["editParticipant"]) && (isset($_POST["editCharactercode"]))) {
 	if (count(getValueArray($con, 'participants') == 0)) {
 		$spot_var = 1;
@@ -167,10 +154,8 @@ if (isset($_POST["editParticipant"]) && (isset($_POST["editCharactercode"]))) {
 	}
 	$participant = $_POST["editParticipant"] . "#" . $_POST["editCharactercode"];
 	$name = $_COOKIE["rememberParticipant"];
-	updateTableSpecific($con, 'participants', $participant,
-			'name', 'name', $_COOKIE["rememberParticipant"]);
-	//$sql = "UPDATE participants SET name=$participant WHERE name=$name";
-	//$con->query($sql);
+	$sql = "UPDATE participants SET name=$participant WHERE name=$name";
+	$con->query($sql);
 	$_COOKIE["participant"] = $participant;
 	$expire = time() + 3600;
 	setcookie("rememberParticipant", $participant, $expire);
