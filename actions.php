@@ -1,6 +1,6 @@
 <?php
 include ("functions.php");
-$con=mysqli_connect("localhost","root","123","opendb");
+$con = mysqli_connect("localhost","root","123","opendb");
 setcookie("invalidLogin", "invalidLogin",time() - 3600);
 setcookie("invalidScore", "invalidScore", time() - 3600);
 // Check if Cookie should be deleted
@@ -136,7 +136,9 @@ if (isset($_POST["enterParticipant"]) &&
 		$spot_var = count(getValueArray($con, 'participants')) + 1;
 	}
 	$participant = $_POST["enterParticipant"] . "#" . $_POST["enterCharactercode"];
-	insertInTable($con, 'participants', 'spot', 'name', $spot_var, $participant);
+	$race = $_POST['race'];
+	mysqli_query($con, "INSERT INTO participants (spot, name, race) VALUES ($spot_var, '$participant', '$race')");
+
 	$_COOKIE["participant"] = $participant;
 	$expire = time() + 3600;
 	setcookie("rememberParticipant", $participant, $expire);
