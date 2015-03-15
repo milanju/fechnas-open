@@ -1,6 +1,6 @@
 <?php include ("header.php");
 
-$con=mysqli_connect("localhost","root","123","opendb");
+$con = mysqli_connect("localhost","root","123","opendb");
 
 
 if (mysqli_connect_errno()) {
