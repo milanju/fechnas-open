@@ -16,9 +16,9 @@
 		<!--Wrapper Auto Expand-->
 		<script>
 			$(document).ready(function() {
-			  $("#wrapper_t, #wrapper_b, #wrapper_l, #wrapper_r, #wrapper_tl,
-			  		#wrapper_tr, #wrapper_bl,
-			  		#wrapper_br").height( $( "#wrapper" ).height() );
+			  $("#wrapper_t, #wrapper_b, #wrapper_l,"
+			  	+ " #wrapper_r, #wrapper_tl, #wrapper_tr,"
+			  	+ " #wrapper_bl, #wrapper_br").height( $( "#wrapper" ).height() );
 			}) ;
 		</script>
 
