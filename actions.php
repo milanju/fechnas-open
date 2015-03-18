@@ -86,7 +86,7 @@ if (isset($_POST["unsign"])) {
 
 // Check if WIPE button has been pressed if true > run resetBracket()
 if (isset($_POST["wipe-participants"])) {
-	$bracket_size=getBracketSize(getSpecificValue($con, 'data', 'data',
+	$bracket_size = getBracketSize(getSpecificValue($con, 'data', 'data',
 		'value', 'bracket'));
 	$i = 2048;
 	do {
@@ -95,8 +95,7 @@ if (isset($_POST["wipe-participants"])) {
 		$i /= 2;
 	} while($i >= 1);
 	wipeTable($con, 'participants');
-	$sql = "UPDATE data SET value='none' WHERE data='bracket'";
-	$con->query($sql);
+	$con->query("UPDATE data SET value='none' WHERE data='bracket'");
 
 	header("Location: " . $_SERVER['REQUEST_URI']);
 	exit();
