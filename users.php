@@ -7,8 +7,8 @@
   $users_array = getValueArray($con, 'users');
   sort($users_array);
   for ($i = 1; $i <= count(getValueArray($con, 'users')); $i++) {
-  	echo "<br>";
-  	echo $users_array[$i-1];
+    echo "<br>";
+    echo $users_array[$i-1];
   }
   mysqli_close($con);
   ?>
