@@ -74,12 +74,6 @@ if (isset($_POST["login_user"])) {
 	exit();
 }
 
-if (isset($_POST["deadmin_user"])) {
-	updateTableSpecific($con, 'users', 0, 'name', 'admin', $_POST["user_name"]);
-	header("Location: " . $_SERVER['REQUEST_URI']);
-	exit();
-}
-
 //Check if unsign button(Participants) has been pressed if true > delete Cookie
 if (isset($_POST["unsign"])) {
 	deleteTableElement($con, 'participants', 'name',
