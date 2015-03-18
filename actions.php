@@ -74,13 +74,6 @@ if (isset($_POST["login_user"])) {
 	exit();
 }
 
-// Check if User is made Admin in users.php
-if (isset($_POST["admin_user"])) {
-	updateTableSpecific($con, 'users', 1, 'name', 'admin', $_POST["user_name"]);
-	header("Location: " . $_SERVER['REQUEST_URI']);
-	exit();
-}
-
 if (isset($_POST["deadmin_user"])) {
 	updateTableSpecific($con, 'users', 0, 'name', 'admin', $_POST["user_name"]);
 	header("Location: " . $_SERVER['REQUEST_URI']);
