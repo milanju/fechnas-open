@@ -63,7 +63,7 @@
 						class="logout-button" value="Logout">
 					<div id="welcome_message">
 						Hello
-						<?php echo $_COOKIE["rememberUsername"]; ?> !
+						<?php echo "$_COOKIE['rememberUsername'] !"; ?>
 					</div><?php } ?>
 					</form>
 				</div>
