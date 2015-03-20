@@ -24,8 +24,11 @@ function generateBracket($con, $shuffledParticipantsArray)
             if ($array_pos == 0){
                 $slot=2;
             }
-            insertInTable($con, $bracket, 'spot', 'name',
-                $slot, $shuffledParticipantsArray[$array_pos]);
+            //insertInTable($con, $bracket, 'spot', 'name',
+            //    $slot, $shuffledParticipantsArray[$array_pos]);
+            $name = $shuffledParticipantsArray[$array_pos];
+            $con->query("INSERT INTO $bracket (spot, name, race)
+                VALUES ($slot, '$name', 'Terran')");
             $array_pos++;
             $slot += 2;
             if($slot == $bracket_size + 2){
@@ -92,7 +95,7 @@ function generateBracket($con, $shuffledParticipantsArray)
 
 
     $bracket = selectTable(count($shuffledParticipantsArray));
-    $bracket_size=getBracketSize($bracket);
+    $bracket_size = getBracketSize($bracket);
     $bracket_extension = $bracket_size/2;
 
 
