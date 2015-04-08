@@ -159,11 +159,33 @@ if (isset($_POST["submit_score"])) {
 	$bracket_extension = $bracket_size / 2;
 
 	$spot = getSpecificValue($con, $bracket, 'name', 'spot',
-		$_COOKIE["rememberParticipant"]);
+	$_COOKIE["rememberParticipant"]);
 	if (getUserBracket($con, $_COOKIE["rememberParticipant"]) != 'bracket_ro2') {
 
 	//BEST OF 3
 
+	$score1 = 0;
+	$score2 = 0;
+
+	if($_POST["game_1"] == "won") $score1 += 1;
+	if($_POST["game_2"] == "won") $score1 += 1;
+	if($_POST["game_3"] == "won") $score1 += 1;
+
+	if($score1 == 2){
+		if($spot%2 == 0 && getSpecificValue($con, 'bracket_ro'.$bracket_extension, 'spot', 'name', $spot/2) == '&nbsp;') {
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 2, 'spot', 'score', $spot);
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension, $_COOKIE["rememberParticipant"], 'spot', 'name', $spot/2);
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 0, 'spot', 'score', $spot-1);
+		}
+		elseif (getSpecificValue($con, 'bracket_ro'.$bracket_extension, 'spot', 'name', ($spot+1)/2) == '&nbsp;') {
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 2, 'spot', 'score', $spot);
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension, $_COOKIE["rememberParticipant"], 'spot', 'name', ($spot+1)/2);
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 0, 'spot', 'score', $spot+1);
+		}
+	}
+
+
+/*
 	//If WON 2-0
 	if($_POST["game_1"] == "won" && $_POST["game_2"] == "won" && $_POST["game_3"] == "-"){
 		if($spot%2 == 0 && getSpecificValue($con, 'bracket_ro'.$bracket_extension, 'spot', 'name', $spot/2) == '&nbsp;') {
@@ -322,6 +344,8 @@ if (isset($_POST["submit_score"])) {
 	} else {
 		setcookie("invalidScore", "invalidScore", time() + 3600);
 	}
+
+	*/
 	}
 
 	header("Location: " . $_SERVER['REQUEST_URI']);

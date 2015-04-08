@@ -18,11 +18,11 @@ function generateBracket($con, $shuffledParticipantsArray)
     for ($i = 0; $i < $bracket_size; $i++) {
         if($byeCount > 0){
             insertInTable($con, $bracket, 'spot', 'name', $slot, '*BYE*');
-            $slot+=2;
+            $slot += 2;
             $byeCount--;
         } else {
             if ($array_pos == 0){
-                $slot=2;
+                $slot = 2;
             }
             //insertInTable($con, $bracket, 'spot', 'name',
             //    $slot, $shuffledParticipantsArray[$array_pos]);
@@ -32,7 +32,7 @@ function generateBracket($con, $shuffledParticipantsArray)
             $array_pos++;
             $slot += 2;
             if($slot == $bracket_size + 2){
-                $slot=$byeCount2 * 2 + 1;
+                $slot = $byeCount2 * 2 + 1;
             }
         }
     }
