@@ -171,16 +171,52 @@ if (isset($_POST["submit_score"])) {
 	if($_POST["game_2"] == "won") $score1 += 1;
 	if($_POST["game_3"] == "won") $score1 += 1;
 
+	if($_POST["game_1"] == "lost") $score2 += 1;
+	if($_POST["game_2"] == "lost") $score2 += 1;
+	if($_POST["game_3"] == "lost") $score2 += 1;
+
 	if($score1 == 2){
-		if($spot%2 == 0 && getSpecificValue($con, 'bracket_ro'.$bracket_extension, 'spot', 'name', $spot/2) == '&nbsp;') {
-			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 2, 'spot', 'score', $spot);
-			updateTableSpecific($con, 'bracket_ro'.$bracket_extension, $_COOKIE["rememberParticipant"], 'spot', 'name', $spot/2);
-			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 0, 'spot', 'score', $spot-1);
+		if($spot%2 == 0 && getSpecificValue($con, 'bracket_ro'.$bracket_extension,
+			'spot', 'name', $spot/2) == '&nbsp;') {
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 2,
+				'spot', 'score', $spot);
+			updateTableSpecific($con,
+				'bracket_ro'.$bracket_extension, $_COOKIE["rememberParticipant"],
+				'spot', 'name', $spot/2);
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 0,
+				'spot', 'score', $spot-1);
 		}
-		elseif (getSpecificValue($con, 'bracket_ro'.$bracket_extension, 'spot', 'name', ($spot+1)/2) == '&nbsp;') {
-			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 2, 'spot', 'score', $spot);
-			updateTableSpecific($con, 'bracket_ro'.$bracket_extension, $_COOKIE["rememberParticipant"], 'spot', 'name', ($spot+1)/2);
-			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 0, 'spot', 'score', $spot+1);
+		elseif (getSpecificValue($con, 'bracket_ro'.$bracket_extension,
+			'spot', 'name', ($spot+1)/2) == '&nbsp;') {
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 2,
+				'spot', 'score', $spot);
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension,
+			 $_COOKIE["rememberParticipant"], 'spot', 'name', ($spot+1)/2);
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 0,
+				'spot', 'score', $spot+1);
+		}
+	}
+
+	if($score2 == 2){
+		if($spot%2 == 0 && getSpecificValue($con, 'bracket_ro'.$bracket_extension,
+			'spot', 'name', $spotTT/2) == '&nbsp;') {
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 0,
+				'spot', 'score', $spot);
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension,
+				getSpecificValue($con, 'bracket_ro'.$bracket_extension*2,
+				'spot', 'name', ($spot-1)), 'spot', 'name', $spot/2);
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 2,
+				'spot', 'score', $spot-1);
+		}
+		elseif (getSpecificValue($con, 'bracket_ro'.$bracket_extension, 'spot',
+			'name', ($spot+1)/2) == '&nbsp;') {
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2,
+				0, 'spot', 'score', $spot);
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension,
+				getSpecificValue($con, 'bracket_ro'.$bracket_extension*2,
+				'spot', 'name', ($spot+1)), 'spot', 'name', ($spot+1)/2);
+			updateTableSpecific($con, 'bracket_ro'.$bracket_extension*2, 2,
+				'spot', 'score', $spot+1);
 		}
 	}
 
