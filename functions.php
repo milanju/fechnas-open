@@ -110,7 +110,10 @@ function generateBracket($con, $shuffledParticipantsArray)
         else {
             $opponentSlot = $byespot+1;
         }
-        $bye = getSpecificValue($con, $bracket, 'spot', 'name', $byespot);
+
+        if(isset($byespot)){
+            $bye = getSpecificValue($con, $bracket, 'spot', 'name', $byespot);
+        }
 
         $advance = getSpecificValue($con, $bracket,
                 'spot', 'name', $opponentSlot);
