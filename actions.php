@@ -388,31 +388,6 @@ if (isset($_POST["submit_score"])) {
 	exit();
 }
 
-//<!--Check if "Submit Winner Button[ro64]" has been pressed. IF YES will update winner.-->
-	for($bracket_size=64;$bracket_size>1;$bracket_size/=2){
-	$half_bracket_size_string=(string)$bracket_size/2;
-	$bracket_size_string=(string)$bracket_size;
-	$spot=1;
-
- for($i=1;$i<=$bracket_size/2;$i++){
-	$spot_string=(string)$spot;
-	if(!empty($_POST[$bracket_size_string.'*'.$spot_string])){
-	updateTableSpecific($con, 'bracket_ro'.$half_bracket_size_string , getSpecificValue($con, 'bracket_ro'.$bracket_size_string , 'spot', 'name', $spot), 'spot', 'name', $i);
-	header("Location: " . $_SERVER['REQUEST_URI']);
-	exit();
-	}
-	$j=$spot+1;
-	$j_string=(string)$j;
-	if(!empty($_POST[$bracket_size_string.'*'.$j_string])){
-	updateTableSpecific($con, 'bracket_ro'.$half_bracket_size_string , getSpecificValue($con, 'bracket_ro'.$bracket_size_string, 'spot', 'name', $j), 'spot', 'name', $i);
-	header("Location: " . $_SERVER['REQUEST_URI']);
-	exit();
-	}
-	$spot+=2;;
- }
-	}
-
-
 //<!--Check if RESET button has been pressed if true > run resetBracket()-->
 
 if(!empty($_POST["reset_bracket"])){
